@@ -1,0 +1,14 @@
+{
+  "name": "casevault",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently -n api,web -c cyan,magenta \"pnpm --filter @casevault/api dev\" \"pnpm --filter @casevault/web dev\"",
+    "build": "pnpm --filter @casevault/web build",
+    "typecheck": "pnpm -r run typecheck"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0",
+    "typescript": "^5.5.0"
+  },
+  "packageManager": "pnpm@9.15.0"
+}
