@@ -2,7 +2,7 @@ import Database from 'better-sqlite3';
 import fs from 'fs';
 import path from 'path';
 
-const dbPath = path.join(__dirname, '..', '..', 'casevault.db');
+const dbPath = process.env.DATABASE_URL || path.join(__dirname, '..', '..', 'casevault.db');
 const db = new Database(dbPath);
 
 // Enable WAL mode for better concurrent read performance

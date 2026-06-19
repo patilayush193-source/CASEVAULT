@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "tsx watch src/app.ts",
-    "build": "tsc",
+    "build": "tsc && npx copyfiles -u 1 src/db/schema.sql dist/",
+    "start": "node dist/app.js",
     "typecheck": "tsc --noEmit",
     "seed": "tsx src/db/seed.ts"
   },

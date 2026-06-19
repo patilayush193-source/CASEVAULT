@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: casevault-api
+    env: node
+    rootDir: apps/api
+    buildCommand: pnpm install && pnpm run build
+    startCommand: pnpm run start
+    disk:
+      name: sqlite-data
+      mountPath: /data
+      sizeGB: 1
+    envVars:
+      - key: DATABASE_URL
+        value: /data/casevault.db
+      - key: PORT
+        value: 4000
+      - key: FRONTEND_URL
+        # This will be overridden later with the Cloudflare pages URL
+        value: https://your-cloudflare-pages-url.pages.dev
+      - key: JWT_SECRET
+        generateValue: true
